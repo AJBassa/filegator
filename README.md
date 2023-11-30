@@ -110,6 +110,11 @@ Precompiled build is created for non-developers. In this version, the frontend (
 
 [Download & install instructions](https://docs.filegator.io/install.html)
 
+## Build the frontend using a single docker command
+Using node v14:
+```
+docker run -it --rm --name my-running-script -v "$PWD":/usr/src/app -w /usr/src/app node:14 bash -c 'npm i && npm run build'
+```
 
 ## Project setup for development (Linux)
 

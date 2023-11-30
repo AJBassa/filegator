@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
-    "@vue/cli-plugin-e2e-cypress": "^5.0.8",
     "@vue/cli-service": "^5.0.8",
     "axios": "^0.21.4",
     "buefy": "^0.9.25",
