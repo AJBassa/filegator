@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "concurrently \"php -S localhost:8081\" \"vue-cli-service serve\"",
+    "serve": "concurrently \"php -S 0.0.0.0:8081\" \"vue-cli-service serve\"",
     "build": "vue-cli-service build --no-clean",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e --headless",
@@ -14,7 +14,7 @@
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@vue/cli-service": "^5.0.8",
     "axios": "^0.21.4",
-    "buefy": "^0.9.25",
+    "buefy": "^0.7.10",
     "concurrently": "^4.1.2",
     "moment": "^2.29.4",
     "prismjs": "^1.29.0",
