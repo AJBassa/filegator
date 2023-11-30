@@ -1,0 +1,15 @@
+#################################
+# php8.3 & node18 dev setup
+#################################
+# run dev setup with:
+# docker run -it --rm --name filegator-dev-env -p 8080:8080 -p 8081:8081 -v "$PWD":/usr/src/app -w /usr/src/app $(docker build -q - < Dockerfile.dev) bash -c 'composer install && npm rebuild node-sass && npm i && npm run serve'
+#################################
+FROM php:8.3.0-cli-bookworm
+
+RUN apt-get update
+RUN apt-get install -y nodejs npm curl libzip-dev
+RUN docker-php-ext-install zip
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+CMD ["tail", "-f", "/dev/null"]
