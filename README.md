@@ -110,10 +110,23 @@ Precompiled build is created for non-developers. In this version, the frontend (
 
 [Download & install instructions](https://docs.filegator.io/install.html)
 
-## Build the frontend using a single docker command
-Using node v14:
+## Project setup for development (Docker)
+This uses the included `Dockerfile.dev` file which will build a debian image with php8.3 and node18.
+
+Install dependencies, start and hot reload:
 ```
-docker run -it --rm --name my-running-script -v "$PWD":/usr/src/app -w /usr/src/app node:14 bash -c 'npm i && npm run build'
+docker run -it --rm --name filegator-dev-env \
+    -p 8080:8080 -p 8081:8081 \
+    -v "$PWD":/usr/src/app -w /usr/src/app \
+    $(docker build -q - < Dockerfile.dev) \
+    bash -c 'composer install && npm i && npm run serve'
+```
+Build fontend into dist/ folder:
+```
+docker run -it --rm --name filegator-dev-env \
+    -v "$PWD":/usr/src/app -w /usr/src/app \
+    $(docker build -q - < Dockerfile.dev) \
+    bash -c 'npm run build'
 ```
 
 ## Project setup for development (Linux)
