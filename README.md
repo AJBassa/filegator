@@ -121,51 +121,14 @@ docker run -it --rm --name filegator-dev-env \
     $(docker build -q - < Dockerfile.dev) \
     bash -c 'composer install && npm i && npm run serve'
 ```
-Build fontend into dist/ folder:
+
+Build the fontend into `filegator/dist/` folder:
 ```
 docker run -it --rm --name filegator-dev-env \
     -v "$PWD":/usr/src/app -w /usr/src/app \
     $(docker build -q - < Dockerfile.dev) \
     bash -c 'npm run build'
 ```
-
-## Project setup for development (Linux)
-
-You must have `git`, `php`, `npm`, and `composer` installed.
-
-```
-git clone https://github.com/filegator/filegator.git
-cd filegator
-cp configuration_sample.php configuration.php
-chmod -R 775 private/
-chmod -R 775 repository/
-composer install --ignore-platform-reqs
-npm install
-npm run build
-```
-
-
-## Compiles and hot-reloads
-
-The following command will launch backend and frontend on ports 8081 and 8080:
-
-```
-npm run serve
-```
-Once everything is ready visit: `http://localhost:8080`
-
-
-## Run tests & static analysis
-
-Testing requires xdebug, php-zip and sqlite php extensions.
-
-```
-vendor/bin/phpunit
-vendor/bin/phpstan analyse ./backend
-npm run lint
-npm run e2e
-```
-
 
 ## Deployment
 
